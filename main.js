@@ -19,7 +19,7 @@ let betterWords = storyWords.filter((word) => !unnecessaryWords.includes(word));
 
 let overusedWords = ['really', 'very', 'basically'];
 
-function countThese(a, b) {
+function countUnnecessary(a, b) {
     let count = 0;
     for (let i = 0; i < a.length; i++) {
         for (let j = 0; j < b.length; j++) {
@@ -31,6 +31,18 @@ function countThese(a, b) {
     return count;
 }
 
-console.log(`You used ${countThese(betterWords, overusedWords)} unnecessary words.`);
+console.log(`You used ${countUnnecessary(betterWords, overusedWords)} unnecessary words.`);
 
+// Now, count how many sentences are in the paragraph.
 
+function countSentences(arr) {
+    let sentences = 0;
+    arr.forEach(word => {
+        if (word[word.length-1] === '.' || word[word.length-1] === '!') {
+            sentences += 1;
+        }
+    });
+    return sentences;
+}
+
+console.log(`You wrote ${countSentences(betterWords)} sentences.`);
