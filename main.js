@@ -54,3 +54,7 @@ function storyStats() {
 }
 
 console.log(storyStats());
+
+// Log betterWords array to the console as single string
+
+console.log(betterWords.join(' '));
