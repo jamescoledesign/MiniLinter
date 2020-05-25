@@ -6,7 +6,7 @@ let storyWords = story.split(" ");
 
 // Log how many words there are in this story to the console.
 
-console.log(storyWords.length);
+console.log(`There are ${storyWords.length} words in the original story`);
 
 // Filter out unnecessary words. Save the remaining words in an array called betterWords.
 
@@ -19,7 +19,7 @@ let betterWords = storyWords.filter((word) => !unnecessaryWords.includes(word));
 
 let overusedWords = ['really', 'very', 'basically'];
 
-function countUnnecessary(a, b) {
+function countOverused(a, b) {
     let count = 0;
     for (let i = 0; i < a.length; i++) {
         for (let j = 0; j < b.length; j++) {
@@ -31,11 +31,9 @@ function countUnnecessary(a, b) {
     return count;
 }
 
-console.log(`You used ${countUnnecessary(betterWords, overusedWords)} unnecessary words.`);
-
 // Now, count how many sentences are in the paragraph.
 
-function countSentences(arr) {
+function sentenceCount(arr) {
     let sentences = 0;
     arr.forEach(word => {
         if (word[word.length-1] === '.' || word[word.length-1] === '!') {
@@ -45,4 +43,14 @@ function countSentences(arr) {
     return sentences;
 }
 
-console.log(`You wrote ${countSentences(betterWords)} sentences.`);
+// Word count
+
+let wordCount = betterWords.length;
+
+// Log word count, sentence count, and number of times each overused word appears
+
+function storyStats() {
+    return `There are now ${wordCount} words, ${sentenceCount(betterWords)} sentences, and ${countOverused(betterWords, overusedWords)} overused words in the revised story.`
+}
+
+console.log(storyStats());
