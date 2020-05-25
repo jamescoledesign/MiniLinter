@@ -6,3 +6,5 @@ console.log(storyWords.length);
 let overusedWords = ['really', 'very', 'basically'];
 
 let unnecessaryWords = ['extremely', 'literally', 'actually' ];
+
+let betterWords = storyWords.filter((word) => !unnecessaryWords.includes(word));
